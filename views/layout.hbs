@@ -3,8 +3,17 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js" charset="utf-8"></script>
   </head>
-  <body>
-    {{{body}}}
+  <body ng-app="appAngular">
+
+        {{> header}}
+
+        {{{body}}}
+
+        {{> footer}}
+
+        <script src="/javascripts/angular/main.js" charset="utf-8"></script>
+        <script src="/javascripts/angular/controllers.js" charset="utf-8"></script>
   </body>
 </html>
