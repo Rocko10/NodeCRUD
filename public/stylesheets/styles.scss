@@ -1,1 +1,16 @@
+$base: #7A16FF;
+$w: #FFFFFF;
 
+header{
+    background-color: $base;
+    li{
+        display: inline;
+        margin-left: 1em;
+        a{
+            color: $w;
+        }
+    }
+}
+footer{
+    text-align: center;
+}
