@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // handlebars partials
 var hbs = require('hbs');
+// mongoose
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -18,6 +20,9 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// mongoose settings
+mongoose.connect('mongodb://127.0.0.1/myTesting');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
