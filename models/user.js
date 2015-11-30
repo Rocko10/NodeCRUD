@@ -5,4 +5,4 @@ var userSchema = new mongoose.Schema({
     age: Number
 });
 
-module.exports = mongoose.model('userModel', userSchema);
+module.exports = mongoose.model('User', userSchema);

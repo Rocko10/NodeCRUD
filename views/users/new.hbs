@@ -1,0 +1,15 @@
+<h3>{{title}}</h3>
+<div class="container">
+
+    <div ng-controller="usersCtrl">
+        <form name="user">
+            <input type="text" name="name" ng-model="name" placeholder="Ingresa nombre" required/> <br/>
+            <input type="number" name="age" ng-model="age" placeholder="Ingresa edad" required> <br/>
+            <button type="button" ng-click="new()" ng-disabled="user.name.$invalid || user.age.$invalid">
+                Aceptar
+            </button>
+        </form>
+        <span ng-if="status">Usuario creado exitosamente</span>
+    </div>
+
+</div>

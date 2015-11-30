@@ -11,5 +11,10 @@ router.get('/lista', function(req, res, next){
         title: 'Lista'
     });
 });
+router.get('/crear-usuario', function(req, res, next){
+    res.render('users/new', {
+        title: 'Crear usuario'
+    });
+});
 
 module.exports = router;

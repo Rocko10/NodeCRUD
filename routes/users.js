@@ -6,12 +6,26 @@ var userModel = require('./../models/user.js');
 router.get('/', function(req, res, next) {
   userModel.find(function(err, users){
       if(err){
-          res.send(err);
+          console.log(err);
+          res.send([]);
       }
       else{
           res.send(users);
       }
   });
+});
+
+router.post('/new', function(req, res, next){
+    var user = req.body;
+    userModel.create(user, function(err){
+        if(err){
+            console.log(err);
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    });
 });
 
 module.exports = router;
