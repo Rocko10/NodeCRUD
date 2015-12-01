@@ -1,9 +1,11 @@
 <h3>{{title}}</h3>
 
 <div ng-controller="usersCtrl">
-    <ul>
-        <li ng-repeat="user in users">
+    <ul id="usuarios">
+        <li ng-repeat="user in users" id="[{user._id}]">
             [{user.name}]
+            <span ng-click="deleteUser(user)" class="delete"> Eliminar</span>
+            <a href="/actualizar-usuario/[{user._id}]"> Actualizar</a>
         </li>
     </ul>
 </div>

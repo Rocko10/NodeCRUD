@@ -15,15 +15,75 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/new', function(req, res, next){
-    var user = req.body;
-    userModel.create(user, function(err){
+router.get('/:id', function(req, res, next){
+    var id = req.params.id;
+    userModel.find({'_id': id}, function(err, user){
         if(err){
             console.log(err);
-            return 0;
+            res.send({
+                status: 0
+            });
         }
         else{
-            return 1;
+            res.send(user[0]);
+        }
+    });
+});
+
+router.delete('/delete/:id', function(req, res, next){
+    var id = req.params.id;
+    userModel.remove({'_id': id}, function(err){
+        if(err){
+            console.log(err);
+            res.send({
+                status: 0,
+                msg: err
+            });
+        }
+        else{
+            res.send({
+                status: 1
+            });
+        }
+    });
+});
+
+router.post('/new', function(req, res, next){
+    var user = req.body;
+    userModel.create(user, function(err, user){
+        if(err){
+            console.log(err);
+            res.send({
+                status: 0,
+                'msg': err
+            });
+        }
+        else{
+            res.send({
+                'status': 1,
+                'msg': user
+            });
+        }
+    });
+});
+
+router.patch('/:id', function(req, res, data){
+    var id = req.params.id;
+    var data = req.body;
+    userModel.findOneAndUpdate({
+        '_id': id
+    }, data, function(err){
+        if(err){
+            console.log(err);
+            res.send({
+                status: 0,
+                msg: err
+            });
+        }
+        else{
+            res.send({
+                status: 1
+            });
         }
     });
 });

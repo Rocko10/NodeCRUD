@@ -1,0 +1,15 @@
+<h3>{{title}}</h3>
+
+
+<div ng-init="id='{{user._id}}'" ng-controller="usersDetailCtrl">
+
+    <h4>{{user.name}}</h4>
+    <form name="userUpdate">
+        <input type="text" name="name" ng-model="name" placeholder="{{user.name}}" required/> <br/>
+        <input type="number" name="age" ng-model="age" placeholder="{{user.age}}" required/> <br/>
+        <button ng-click="update()" ng-disabled="user.name.$invalid || user.age.$invalid">
+            Actualizar
+        </button>
+        <span ng-if="status">Información actualizada</span>
+    </form>
+</div>
